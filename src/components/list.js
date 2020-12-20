@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemList from './itemList'
-
+import {firebase,db,storage} from '../firebase'
+import {TasksContext} from '../provider/provider'
 const List = () => {
-    const [files, setFiles] = useState([
-        { name: 'File.png' },
-        { name: 'File1.png' },
-        { name: 'File2.png' }
-    ])
-
+   const {tasks}=useContext(TasksContext)
     return (
-        <div style={{ width: '100%', alignItems: 'flex-start' }}>
+        <div className='list'>
             {
-                files.map(item => (<ItemList {...item} />))
+              tasks.map(item => (<ItemList {...item} />))
             }
         </div>
     )
