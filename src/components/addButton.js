@@ -12,6 +12,7 @@ const AddButton = () => {
         fileRef.put(file).then(()=>{
             console.log("UPLOADED A FILE")  
             setTasks([...tasks,{name:file.name}])
+            window.location.reload(true);
         })
     }
     const darsan=(e)=>{
